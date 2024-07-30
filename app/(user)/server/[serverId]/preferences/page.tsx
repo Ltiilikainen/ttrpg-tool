@@ -9,16 +9,11 @@ import ServerInvitationsList from "./_components/InvitationList";
 import getServerAuth from "@/actions/getServerAuth";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import ServerSecurity from "./_components/Security";
 import { Fragment } from "react";
 import checkAuthMatch from "@/utils/checkServerAuthMatch";
-import Discoverability from "./_components/Discoverability";
-import ServerInfo from "./_components/ServerInfo";
-import Icon from "@/app/_components/Icon";
 import errorHandler from "@/utils/errorHandler";
 import Link from "next/link";
 import MaterialSymbolsLightChevronLeftRounded from "@/public/icons/MaterialSymbolsLightChevronLeftRounded";
-import Divider from "@/app/_components/Divider";
 import FormContainer from "./_components/FormContainer";
 
 export default async function ServerPreferences({
@@ -47,6 +42,8 @@ export default async function ServerPreferences({
         },
       });
 
+      console.log(server);
+
       const serverAuth = await getServerAuth(
         id,
         (session as ExtendedSession).userId,
@@ -59,7 +56,7 @@ export default async function ServerPreferences({
           <FormContainer server={server} serverAuth={serverAuth} />
           <h2 className="my-2">Invitations</h2>
           <ServerInvitationsList
-            serverId={server.id}
+            serverId={id}
             authMatch={checkAuthMatch(serverAuth, server.config![0])}
           />
         </Fragment>

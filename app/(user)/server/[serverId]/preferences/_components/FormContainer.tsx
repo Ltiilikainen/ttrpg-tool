@@ -4,7 +4,6 @@ import Divider from "@/app/_components/Divider";
 import checkAuthMatch from "@/utils/checkServerAuthMatch";
 import { Fragment, useTransition } from "react";
 import Discoverability from "./Discoverability";
-import ServerInvitationsList from "./InvitationList";
 import ServerSecurity from "./Security";
 import ServerInfo from "./ServerInfo";
 

@@ -13,7 +13,11 @@ export default async function ServerInvitationsList({
 }) {
   const element: JSX.Element = await errorHandler(
     async () => {
+      console.log(serverId);
+
       const invitations = await getInvitationsByServer(serverId);
+
+      console.log(invitations);
 
       if (invitations.length === 0)
         return <p>There are no active invitations.</p>;
