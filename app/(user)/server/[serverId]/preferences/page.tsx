@@ -42,8 +42,6 @@ export default async function ServerPreferences({
         },
       });
 
-      console.log(server);
-
       const serverAuth = await getServerAuth(
         id,
         (session as ExtendedSession).userId,
